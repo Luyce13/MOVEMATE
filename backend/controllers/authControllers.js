@@ -8,6 +8,7 @@ const signUp_post = asyncHandler(async (req, res) => {
   res.status(201).json({
     user: user._id,
     email: user.email,
+    password: user.password,
     token: generateToken(user._id),
   });
 });

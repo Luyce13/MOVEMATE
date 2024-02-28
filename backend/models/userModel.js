@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: [true, "Password k bgeir to kam ni chly ga🙈"],
-    minlenth: [8, "Kam az kam 8 character to likho😮‍💨"],
+    minLength: [8, "Kam az kam 8 character to likho😮‍💨"],
   },
 });
 

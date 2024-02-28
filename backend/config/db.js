@@ -7,7 +7,7 @@ const connectToDB = async () => {
       `Mongo DB connect ho dyi🤩: ${conn.connection.host}`.cyan.underline
     );
   } catch (error) {
-    console.log(`Error while connecting to Mongo Db🥲: ${error}`);
+    console.log(`Error while connecting to Mongo Db🥲: \n${error}`.red);
     process.exit(1);
   }
 };
@@ -23,4 +23,4 @@ const disconnectMongoDB = async () => {
   }
 };
 
-module.exports = {connectToDB, disconnectMongoDB}
+module.exports = { connectToDB, disconnectMongoDB };
