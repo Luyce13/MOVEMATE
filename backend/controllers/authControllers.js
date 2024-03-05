@@ -20,13 +20,11 @@ const generateToken = (id) => {
 const login_post = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.login(email, password);
-  res
-    .status(200)
-    .json({
-      user: user._id,
-      email: user.email,
-      token: generateToken(user._id),
-    });
+  res.status(200).json({
+    user: user._id,
+    email: user.email,
+    token: generateToken(user._id),
+  });
 });
 
-module.exports = {signUp_post, login_post}
+module.exports = { signUp_post, login_post };

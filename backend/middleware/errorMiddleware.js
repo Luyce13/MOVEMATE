@@ -1,3 +1,10 @@
+/**
+ * @param {Error} err
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ * @param {import('express').NextFunction} next
+ */
+
 const errorHandler = (err, req, res, next) => {
   if (err.name === "ValidationError") {
     const errors = {};
@@ -7,11 +14,11 @@ const errorHandler = (err, req, res, next) => {
     return res
       .status(400)
       .json({ success: false, message: "Validation Error", errors });
-  }else if (err.code === 11000) {
+  } else if (err.code === 11000) {
     const key = Object.keys(err.keyValue)[0];
     const message = `Duplicate key error: ${key} already exists.`;
     return res.status(400).json({ success: false, message });
-  }  else {
+  } else {
     const statusCode = err.statusCode || 500;
     const errorResponse = {
       success: false,
