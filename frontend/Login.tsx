@@ -11,11 +11,20 @@ import {
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+const [emailErr , setEmailErr] = useState(false); //handling  email err 
+const [passwordErr , setPasswordErr] =useState(false); //handling password error 
   const handleLogin = async () => {
     try {
+      if(!emailErr){
+        setEmailErr(true)
+      }
+      if(!emailErr){
+        return false
+      }
+      console.warn("istoppp gee ruko jara sbarr taroo ")
+    
       // Perform login logic here, including JWT authentication
-      const response = await fetch('http://192.168.18.164:4567/movemate/logIn ', {
+      const response = await fetch('http://192.168.43.188:4567/movemate/logIn ', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,6 +35,7 @@ const LoginScreen = () => {
           console.log(result, ' resultttt');
         });
       });
+    
 
       // Handle JWT token received in the response
     } catch (error) {
@@ -46,6 +56,7 @@ const LoginScreen = () => {
         autoCapitalize="none"
         keyboardType="email-address"
       />
+      {emailErr ? <Text>apni email btawo gee , asshhy  kashy </Text> : null}
       {/* Password */}
       <TextInput
         style={styles.input}
@@ -58,6 +69,7 @@ const LoginScreen = () => {
       <TouchableOpacity onPress={handleLogin} style={styles.button}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
+     
     </View>
   );
 };
@@ -88,7 +100,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightgreen',
     borderRadius: 25,
     width: '40%',
-    padding: 15,
+    padding: 18,
     alignItems: 'center',
   },
   buttonText: {
