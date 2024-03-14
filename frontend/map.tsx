@@ -12,7 +12,8 @@ function Mapdisp() {
 function MapComponent() {
   return (
     <View>
-      <Text>Map ho ga yahan</Text>
+      <Text style={style.map}>Map ho ga yahan</Text>
+      <Text></Text>
     </View>
   );
 }
@@ -31,7 +32,7 @@ function Search() {
 function DispInfo(){
     return(
         <View>
-            <Text>
+            <Text style={style.map}>
                 data
             </Text>
         </View>
@@ -46,6 +47,15 @@ const style = StyleSheet.create({
         textAlign:"center",
         margin: 40,
         marginLeft:70
-    }
+    },
+    map:{
+      height: 100,
+      borderColor: "green",
+      borderWidth :3,
+      marginTop:40,
+      padding: 20,
+      textAlign: "center"
+    },
+
 })
 export default Mapdisp;

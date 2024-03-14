@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
 
 
@@ -24,6 +24,10 @@ function HomePage() {
 function DispTime() {
   return (
     <View style={style.TopContainer}>
+      <Image
+        source={require('./images/bus.jpg')} // Change the path accordingly
+       style={style.img}
+      />
       <Text style={style.Centertext}> Bus number will be displayed here</Text>
       <Text style={style.Centertext}> Time will be displayed here </Text>
       <Text style={style.Centertext}> Time will be displayed here </Text>
@@ -33,7 +37,7 @@ function DispTime() {
 
 function Schedule() {
   return (
-    <TouchableOpacity style={style.Buttons}>
+    <TouchableOpacity style={style.ButtonsLeft}>
       <Text style={{ textAlign: "center" }}>Schedule</Text>
      
 
@@ -43,7 +47,7 @@ function Schedule() {
 
 function Search() {
   return (
-    <TouchableOpacity style={style.Buttons}>
+    <TouchableOpacity style={style.ButtonsRight}>
       <Text style={{ textAlign: "center" }}>Search</Text>
     </TouchableOpacity>
   );
@@ -51,7 +55,7 @@ function Search() {
 
 function Notification() {
   return (
-    <TouchableOpacity style={style.Buttons}>
+    <TouchableOpacity style={style.ButtonsRight}>
       <Text style={{ textAlign: "center" }}>Notification</Text>
     </TouchableOpacity>
   );
@@ -59,13 +63,14 @@ function Notification() {
 
 function Settings() {
   return (
-    <TouchableOpacity style={style.Buttons}>
+    <TouchableOpacity style={style.ButtonsLeft}>
       <Text style={{ textAlign: "center" }}>Settings</Text>
     </TouchableOpacity>
   );
 }
 
 const style = StyleSheet.create({
+  
   container: {
     backgroundColor: "transparent",
     display: "flex",
@@ -77,16 +82,31 @@ const style = StyleSheet.create({
     flexDirection: "row",
     marginBottom: 20,
   },
-  Buttons: {
-    backgroundColor: 'lightgreen',
-    width: 170,
-    height: 90,
-    borderRadius: 30,
+  ButtonsLeft: {
+    backgroundColor: 'rgba(128, 255, 171, 0.39)',
+    width: 100,
+    height: 100,
+    borderRadius: 50,
     textAlign: 'center',
-    marginTop: 10,
+    marginTop: 20,
     marginRight: 10,
     justifyContent: 'center',
+    marginLeft: 60
+    
   },
+  ButtonsRight: {
+    backgroundColor: 'rgba(128, 255, 171, 0.39)',
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    textAlign: 'center',
+    marginTop: 20,
+    marginRight: 10,
+    justifyContent: 'center',
+    marginLeft: 30
+    
+  },
+
   TopContainer: {
     borderWidth: 1,
     padding: 30,
@@ -98,6 +118,12 @@ const style = StyleSheet.create({
   Centertext: {
     textAlign: 'center',
   },
+  img:{
+   width:380,
+   height:200,
+   
+    resizeMode: 'contain'
+  }
 });
 
 export default HomePage;

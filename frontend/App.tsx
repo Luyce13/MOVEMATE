@@ -7,11 +7,11 @@ import Home from './Home';
 import Gps from './gpsper';
 import HomePage from './Home';
 import Mapdisp from './map';
+
 function App() {
   return (
     <View>
- <LoginScreen/>
-
+<LoginScreen/>
     </View>
   );
 }

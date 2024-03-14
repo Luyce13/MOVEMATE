@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -10,6 +10,31 @@ import {
 } from 'react-native';
 
 const Signup = () => {
+  const[email ,setEmail] =useState("");  
+ 
+
+  const handleSignUp = async () => {
+    try {
+      // Send sign-up request to backend API
+      const response = await fetch('https://192.168.18.123:4567/movemate/signUp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({email})
+      });
+
+      if (!response.ok) {
+        throw new Error('Sign-up failed');
+      }
+
+      // Handle successful sign-up, e.g., show success message, navigate to login screen
+      console.log('Sign-up successful');
+    } catch (error) {
+      // setError(error.message);
+    }
+  };
+
   return (
     <View>
       <View style={{alignItems: 'center'}}>
@@ -20,14 +45,14 @@ const Signup = () => {
         </Text>
       </View>
       <View style={{marginTop: 40, marginLeft: 35}}>
-        <TextInput placeholder="username " style={style.input} />
+        <TextInput placeholder="username " style={style.input}  />
         <TextInput placeholder="Password " style={style.input} />
         <TextInput placeholder="Confirm password " style={style.input} />
         <TextInput placeholder="Phone number " style={style.input} />
         <TextInput placeholder="session" style={style.input} />
       </View>
       <View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleSignUp}>
           <Text style={style.buttonText}> Sign Up</Text>
         </TouchableOpacity>
       </View>

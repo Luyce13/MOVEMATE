@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 });
 app.use(errorHandler)
 const port = process.env.PORT || 5678;
-app.listen(port, "192.168.43.188", () =>
+app.listen(port,'https://movemate.vercel.app/logIn', () =>
   console.log(`Server chal gya j😁 port ${port} ty`)
 );
 

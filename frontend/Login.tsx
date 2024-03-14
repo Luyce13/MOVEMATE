@@ -1,30 +1,30 @@
+
 import React, {useState} from 'react';
-import HomePage from './Home';
 import {
   View,
   TextInput,
   TouchableOpacity,
   StyleSheet,
   Text,
-  ActivityIndicator,
+  Image
 } from 'react-native';
+
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-const [emailErr , setEmailErr] = useState(false); //handling  email err 
-const [passwordErr , setPasswordErr] =useState(false); //handling password error 
+  const [emailErr, setEmailErr] = useState(false); //handling  email err
   const handleLogin = async () => {
     try {
-      if(!emailErr){
-        setEmailErr(true)
+      if (!emailErr) {
+        setEmailErr(true);
       }
-      if(!emailErr){
-        return false
+      if (!emailErr) {
+        return false;
       }
-      console.warn("istoppp gee ruko jara sbarr taroo ")
-    
+      console.warn('istoppp gee ruko jara sbarr taroo ');
+
       // Perform login logic here, including JWT authentication
-      const response = await fetch('http://192.168.43.188:4567/movemate/logIn ', {
+      await fetch('https://movemate.vercel.app/logIn ', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,7 +35,6 @@ const [passwordErr , setPasswordErr] =useState(false); //handling password error
           console.log(result, ' resultttt');
         });
       });
-    
 
       // Handle JWT token received in the response
     } catch (error) {
@@ -45,6 +44,10 @@ const [passwordErr , setPasswordErr] =useState(false); //handling password error
 
   return (
     <View style={styles.container}>
+     <Image
+        source={require('./images/bus.jpg')} // Change the path accordingly
+       style={styles.img}
+      />
       <Text style={styles.appname}>Movemate</Text>
       <Text style={styles.tagline}>Your tag line goes here</Text>
       {/* Username */}
@@ -56,7 +59,7 @@ const [passwordErr , setPasswordErr] =useState(false); //handling password error
         autoCapitalize="none"
         keyboardType="email-address"
       />
-      {emailErr ? <Text>apni email btawo gee , asshhy  kashy </Text> : null}
+      {emailErr ? <Text>apni email btawo gee , asshhy kashy </Text> : null}
       {/* Password */}
       <TextInput
         style={styles.input}
@@ -69,7 +72,6 @@ const [passwordErr , setPasswordErr] =useState(false); //handling password error
       <TouchableOpacity onPress={handleLogin} style={styles.button}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
-     
     </View>
   );
 };
@@ -82,7 +84,7 @@ const styles = StyleSheet.create({
   appname: {
     fontSize: 36,
     fontWeight: 'bold',
-    color: 'lightgreen',
+    color: 'rgba(4, 222, 78, 1)',
     marginBottom: 10,
   },
   input: {
@@ -113,6 +115,14 @@ const styles = StyleSheet.create({
     marginTop: 20,
     color: 'grey',
   },
+  img:{
+    width:120,
+    height:120,
+    borderRadius:40,
+    marginTop: 30,
+    resizeMode:"contain"
+
+  }
 });
 
 export default LoginScreen;
