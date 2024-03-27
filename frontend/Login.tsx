@@ -12,17 +12,27 @@ import {
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [emailErr, setEmailErr] = useState(false); //handling  email err
+  // const [emailErr, setEmailErr] = useState(false); //handling  email err
   const handleLogin = async () => {
     try {
-      if (!emailErr) {
-        setEmailErr(true);
-      }
-      if (!emailErr) {
-        return false;
-      }
-      console.warn('istoppp gee ruko jara sbarr taroo ');
+      // if (!emailErr) {
+      //   setEmailErr(true);
+      // }
+      // if (!emailErr) {
+      //   return false;
+      // }
+      // console.warn('istoppp gee ruko jara sbarr taroo ');
 
+    
+      // const [isFocused, setIsFocused] = useState(false);
+
+      // const handleFocus = () => {
+      //   setIsFocused(true);
+      // };
+    
+      // const handleBlur = () => {
+      //   setIsFocused(false);
+      // };
       // Perform login logic here, including JWT authentication
       await fetch('https://movemate.vercel.app/logIn ', {
         method: 'POST',
@@ -49,7 +59,7 @@ const LoginScreen = () => {
        style={styles.img}
       />
       <Text style={styles.appname}>Movemate</Text>
-      <Text style={styles.tagline}>Your tag line goes here</Text>
+      <Text style={styles.tagline}>Aag Lgy universe-city main , </Text>
       {/* Username */}
       <TextInput
         style={styles.input}
@@ -58,8 +68,9 @@ const LoginScreen = () => {
         onChangeText={text => setEmail(text)}
         autoCapitalize="none"
         keyboardType="email-address"
+        
       />
-      {emailErr ? <Text>apni email btawo gee , asshhy kashy </Text> : null}
+      {/* {emailErr ? <Text>apni email btawo gee , asshhy kashy </Text> : null} */}
       {/* Password */}
       <TextInput
         style={styles.input}
@@ -72,14 +83,19 @@ const LoginScreen = () => {
       <TouchableOpacity onPress={handleLogin} style={styles.button}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
+      <TouchableOpacity >
+        <Text style={styles.signp}>SignUp krna hy to krein lein !!</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 200,
+    marginTop: 130,
     alignItems: 'center',
+   
+    
   },
   appname: {
     fontSize: 36,
@@ -112,16 +128,21 @@ const styles = StyleSheet.create({
   },
   tagline: {
     textAlign: 'center',
-    marginTop: 20,
+    marginTop: 5,
     color: 'grey',
+    margin:5
   },
   img:{
     width:120,
     height:120,
     borderRadius:40,
-    marginTop: 30,
     resizeMode:"contain"
 
+  },
+  signp:{
+    fontSize:16,
+    color:"green",
+    marginTop:10
   }
 });
 

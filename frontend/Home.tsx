@@ -1,13 +1,19 @@
 
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Image, ImageBackground } from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import Ionicons  from 'react-native-vector-icons/Ionicons';
+import  MaterialIcons  from 'react-native-vector-icons/MaterialIcons';
 
 
 
 function HomePage() {
   return (
+ 
     <View style={style.container}>
-      <Text> Welcome home </Text>
+      
+     
+      {/* <Text> Welcome home </Text> */}
       <DispTime />
       <View style={style.row}>
         <Notification />
@@ -24,47 +30,55 @@ function HomePage() {
 function DispTime() {
   return (
     <View style={style.TopContainer}>
+      {/* <Image
+        source={require('./images/bus.jpg')} 
+       style={style.img}
+      /> */}
       <Image
-        source={require('./images/bus.jpg')} // Change the path accordingly
+        source={require('./images/busslider2.jpg')} 
        style={style.img}
       />
-      <Text style={style.Centertext}> Bus number will be displayed here</Text>
+      {/* <Text style={style.Centertext}> Bus number will be displayed here</Text>
       <Text style={style.Centertext}> Time will be displayed here </Text>
-      <Text style={style.Centertext}> Time will be displayed here </Text>
+      <Text style={style.Centertext}> Time will be displayed here </Text> */}
     </View>
   );
 }
 
 function Schedule() {
+  // const [isHovered, setIsHovered] = useState(false);
+
   return (
     <TouchableOpacity style={style.ButtonsLeft}>
-      <Text style={{ textAlign: "center" }}>Schedule</Text>
-     
-
-    </TouchableOpacity>
+      {/* <Text style={{ textAlign: "center" }}>Schedule</Text> */}
+      <MaterialIcons name= "schedule" style={style.icons}/> 
+     </TouchableOpacity>  //style = {isHovered?style.onHover:style.ButtonsRight}
   );
 }
 
 function Search() {
   return (
-    <TouchableOpacity style={style.ButtonsRight}>
-      <Text style={{ textAlign: "center" }}>Search</Text>
+    <TouchableOpacity style={style.ButtonsLeft}>
+      {/* <Text style={{ textAlign: "center" }}>Search</Text> */}
+      <FontAwesome name= "search"  style = {style.icons}/>
     </TouchableOpacity>
   );
 }
 
 function Notification() {
   return (
-    <TouchableOpacity style={style.ButtonsRight}>
-      <Text style={{ textAlign: "center" }}>Notification</Text>
+    <TouchableOpacity style={style.ButtonsLeft}>
+      {/* <Text style={{ textAlign: "center" }}>Notification</Text> */}
+      <Ionicons name ="notifications" style = {style.icons}/>
     </TouchableOpacity>
   );
 }
 
 function Settings() {
   return (
-    <TouchableOpacity style={style.ButtonsLeft}>
-      <Text style={{ textAlign: "center" }}>Settings</Text>
+    <TouchableOpacity style={style.ButtonsRight } >
+      {/* <Text style={{ textAlign: "center" }}>Settings</Text> */}
+      <Ionicons name ="settings-sharp" style = {style.icons}/>
     </TouchableOpacity>
   );
 }
@@ -84,14 +98,23 @@ const style = StyleSheet.create({
   },
   ButtonsLeft: {
     backgroundColor: 'rgba(128, 255, 171, 0.39)',
+  
     width: 100,
     height: 100,
     borderRadius: 50,
     textAlign: 'center',
-    marginTop: 20,
+    marginTop: 10,
     marginRight: 10,
     justifyContent: 'center',
-    marginLeft: 60
+    marginLeft: 60,
+    shadowColor: "green",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3,
+    // },
+    // elevation:1,
+    // shadowOpacity:100
+    
     
   },
   ButtonsRight: {
@@ -100,19 +123,23 @@ const style = StyleSheet.create({
     height: 100,
     borderRadius: 50,
     textAlign: 'center',
-    marginTop: 20,
+    marginTop: 10,
     marginRight: 10,
     justifyContent: 'center',
-    marginLeft: 30
+    marginLeft: 30,
+    borderColor: "green",
+    borderWidth:1
     
   },
 
   TopContainer: {
-    borderWidth: 1,
-    padding: 30,
+  
+    padding: 10,
     height: 250,
-    marginBottom: 20,
-    width: 350,
+    marginBottom: 10,
+    width: 400,
+   
+  
     
   },
   Centertext: {
@@ -121,8 +148,17 @@ const style = StyleSheet.create({
   img:{
    width:380,
    height:200,
-   
-    resizeMode: 'contain'
+  
+  },
+  icons:{
+    color : "green",
+   textAlign:"center",
+   fontSize:60
+  },
+  onHover:{
+    backgroundColor:"green",
+    color:"white",
+
   }
 });
 
