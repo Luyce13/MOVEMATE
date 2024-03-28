@@ -106,7 +106,7 @@ const style = StyleSheet.create({
     marginTop: 10,
     marginRight: 10,
     justifyContent: 'center',
-    marginLeft: 60,
+    marginLeft: 50,
     shadowColor: "green",
     // shadowOffset: {
     //   width: 0,
@@ -126,7 +126,7 @@ const style = StyleSheet.create({
     marginTop: 10,
     marginRight: 10,
     justifyContent: 'center',
-    marginLeft: 30,
+    marginLeft: 50,
     borderColor: "green",
     borderWidth:1
     

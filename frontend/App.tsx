@@ -1,10 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View,} from 'react-native';
+import {Settings, StyleSheet, Text, View,} from 'react-native';
 import LoginScreen from './Login';
 import Signup from './signUp';
 import Home from './Home';
 import { create } from 'react-test-renderer';
 import { NavigationContainer } from '@react-navigation/native';
+import SettingsPage from './Settings';
 
 // const Tab = createBottomTabNavigator();
 
@@ -17,7 +18,7 @@ function App() {
     //     {/* ...add other screens similarly */}
     //   </Tab.Navigator>
     // </NavigationContainer>
-    <Home/>
+<Home/>
   );
 
   
