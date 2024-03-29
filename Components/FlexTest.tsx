@@ -1,8 +1,17 @@
+
+import 'react-native-gesture-handler';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import TestHome from './Testhome';
+import LoginScreen from '../Login';
+
+
+
 
 const Flex = () => {
   return (
@@ -26,11 +35,11 @@ const Flex = () => {
 };
 function BusInfo() {
   return (
-    <View>
-      <TouchableOpacity>
-        <MaterialIcons name="schedule" style={style.icons} />
-        <Ionicons name="reorder-three-outline" style={style.listIcon} />
-      </TouchableOpacity>
+    <View style={{flex: 1 , justifyContent:"center",
+    alignItems:"flex-end"}}>
+      <Image
+        source={require('/Users/user/Desktop/test/MovemateTestApp/test/images/busslider.png')}
+        style={style.img}></Image>
     </View>
   );
 }
@@ -69,20 +78,24 @@ function Notification() {
     </TouchableOpacity>
   );
 }
+
 const style = StyleSheet.create({
   busInfo: {
     flex: 1,
     backgroundColor: 'rgba(235, 47, 6, 0.83)',
-    borderRadius: 10,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
+    elevation: 10,
+    shadowColor: 'rgba(85, 239, 196, 0.96)',
   },
   text: {
     fontSize: 20,
     color: 'white',
   },
   icons: {
-    fontSize: 30,
+    fontSize: 40,
   },
   schedule: {
     backgroundColor: 'rgba(255, 221, 89, 1)',
@@ -92,19 +105,23 @@ const style = StyleSheet.create({
     marginLeft: 15,
     marginTop: 25,
     borderRadius: 20,
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 4,
+    shadowColor: 'rgba(255, 221, 89, 1)',
   },
   settings: {
     backgroundColor: 'rgba(61, 193, 211, 1)',
-    flex: 3,
+    flex: 2.5,
     alignSelf: 'flex-start',
     width: 180,
-   marginTop:20,
+    marginTop: 10,
     marginLeft: 15,
     borderRadius: 20,
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 4,
+    shadowColor: 'rgba(61, 193, 211, 1)',
   },
   notification: {
     backgroundColor: 'rgba(255, 77, 77, 1)',
@@ -113,35 +130,40 @@ const style = StyleSheet.create({
     height: 380,
     marginRight: 10,
     borderRadius: 20,
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
     marginLeft: 20,
     marginTop: 25,
+    elevation: 4,
+    shadowColor: 'rgba(255, 77, 77, 1)',
   },
   centerButtons: {
     flex: 3,
     flexDirection: 'row',
-   
   },
   search: {
- 
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 20,
     backgroundColor: 'rgba(85, 239, 196, 0.96)',
-    flexDirection:"row",
-       height:50,
-    marginTop: 10,
-    marginLeft:10,
-    marginRight:10
+    flexDirection: 'row',
+    height: 90,
+    marginTop: 18,
+    marginLeft: 10,
+    marginRight: 10,
+    elevation: 2,
+    shadowColor: 'rgba(85, 239, 196, 0.96)',
   },
-  listIcon: {
-    alignSelf: 'flex-start',
-    fontSize: 30,
-  },
+ 
+  
   settingParent: {
     flex: 1,
     backgroundColor: 'pink',
   },
+  img: {
+    height: 100,
+    width: 120,
+  },
 });
+
 export default Flex;
