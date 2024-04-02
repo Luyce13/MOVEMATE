@@ -18,7 +18,7 @@ function App() {
     //     {/* ...add other screens similarly */}
     //   </Tab.Navigator>
     // </NavigationContainer>
-<Home/>
+<LoginScreen/>
   );
 
   
